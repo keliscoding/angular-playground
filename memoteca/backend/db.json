@@ -1,0 +1,22 @@
+{
+  "pensamentos": [
+    {
+      "id": 1,
+      "conteudo": "Este pensamento está vindo do json-server!",
+      "autoria": "json-server",
+      "modelo:": "modelo1"
+    },
+    {
+      "id": 2,
+      "conteudo": "Angular é melhor que react!",
+      "autoria": "Um Dev",
+      "modelo:": "modelo3"
+    },
+    {
+      "id": 3,
+      "conteudo": "Eu amo java.",
+      "autoria": "Javeiro",
+      "modelo:": "modelo2"
+    }
+  ]
+}
