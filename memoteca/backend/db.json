@@ -27,18 +27,6 @@
     {
       "conteudo": "um",
       "autoria": "pensamento",
-      "modelo": "modelo3",
-      "id": 5
-    },
-    {
-      "conteudo": "a",
-      "autoria": "a",
-      "modelo": "modelo3",
-      "id": 6
-    },
-    {
-      "conteudo": "um",
-      "autoria": "pensamento",
       "modelo": "",
       "id": 7
     },
@@ -67,28 +55,10 @@
       "id": 11
     },
     {
-      "conteudo": "um",
-      "autoria": "pensamento",
-      "modelo": "modelo3",
-      "id": 12
-    },
-    {
       "conteudo": "saasas",
       "autoria": "sasas",
       "modelo": "modelo2",
       "id": 13
-    },
-    {
-      "conteudo": "sasasa",
-      "autoria": "sasasasas",
-      "modelo": "modelo3",
-      "id": 14
-    },
-    {
-      "conteudo": "aASasas",
-      "autoria": "sasasasasas",
-      "modelo": "modelo3",
-      "id": 15
     }
   ]
 }
