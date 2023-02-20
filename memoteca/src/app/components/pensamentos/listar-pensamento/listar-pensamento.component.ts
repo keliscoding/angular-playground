@@ -14,6 +14,8 @@ export class ListarPensamentoComponent implements OnInit {
 
   ngOnInit(): void {
     // faz parte do ciclo de vida, se vc quiser que algo seja executado assim que o componente iniciar, vc bota aqui.
-    this.service.listar();
+    this.service.listar().subscribe((listaPensamento) => {
+      this.listaPensamentos = listaPensamento;
+    });
   }
 }
