@@ -5,7 +5,7 @@
       "conteudo": "Este pensamento está vindo do json-server!",
       "autoria": "json-server",
       "modelo": "modelo1",
-      "favorito": true
+      "favorito": false
     },
     {
       "id": 2,
@@ -19,13 +19,13 @@
       "conteudo": "Eu amo java.",
       "autoria": "Javeiro",
       "modelo": "modelo2",
-      "favorito": true
+      "favorito": false
     },
     {
       "conteudo": "Angular é simples",
       "autoria": "Castelo",
       "modelo": "modelo3",
-      "favorito": false,
+      "favorito": true,
       "id": 4
     },
     {
