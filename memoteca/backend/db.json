@@ -4,54 +4,63 @@
       "id": 1,
       "conteudo": "Este pensamento está vindo do json-server!",
       "autoria": "json-server",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "favorito": true
     },
     {
       "id": 2,
       "conteudo": "Angular é melhor que react!",
       "autoria": "Um Dev",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "id": 3,
       "conteudo": "Eu amo java.",
       "autoria": "Javeiro",
-      "modelo": "modelo2"
+      "modelo": "modelo2",
+      "favorito": true
     },
     {
       "conteudo": "Angular é simples",
       "autoria": "Castelo",
       "modelo": "modelo3",
+      "favorito": false,
       "id": 4
     },
     {
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
+      "favorito": false,
       "id": 8
     },
     {
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
+      "favorito": false,
       "id": 9
     },
     {
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
+      "favorito": false,
       "id": 10
     },
     {
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
+      "favorito": false,
       "id": 11
     },
     {
       "conteudo": "saasas",
       "autoria": "sasas",
       "modelo": "modelo2",
+      "favorito": false,
       "id": 13
     }
   ]

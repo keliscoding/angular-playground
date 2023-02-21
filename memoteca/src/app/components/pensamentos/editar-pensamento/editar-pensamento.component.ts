@@ -12,13 +12,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EditarPensamentoComponent implements OnInit {
   formulario!: FormGroup;
 
-  pensamento: Pensamento = {
-    id: 0,
-    conteudo: '',
-    autoria: '',
-    modelo: '',
-  };
-
   constructor(
     private service: PensamentoService,
     private router: Router,
@@ -42,12 +35,13 @@ export class EditarPensamentoComponent implements OnInit {
           Validators.compose([Validators.required, Validators.minLength(5)]),
         ],
         modelo: [pensamento.modelo],
+        favorito: [pensamento.favorito],
       });
     });
   }
 
   editar() {
-    this.service.editar(this.pensamento).subscribe(() => {
+    this.service.editar(this.formulario.value).subscribe(() => {
       this.router.navigate(['/listarPensamento']);
     });
   }
