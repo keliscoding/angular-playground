@@ -19,11 +19,7 @@ export class ListarPensamentoComponent implements OnInit {
 
   ngOnInit(): void {
     // faz parte do ciclo de vida, se vc quiser que algo seja executado assim que o componente iniciar, vc bota aqui.
-    this.service
-      .listar(this.paginaAtual, this.filtro, this.favoritos)
-      .subscribe((listaPensamento) => {
-        this.listaPensamentos = listaPensamento;
-      });
+    this.listarPensamentos();
   }
 
   carregarMaisPensamentos() {
@@ -57,6 +53,15 @@ export class ListarPensamentoComponent implements OnInit {
       .subscribe((listaPensamentosFavoritos) => {
         this.listaPensamentos = listaPensamentosFavoritos;
         this.listaFavoritos = listaPensamentosFavoritos;
+      });
+  }
+
+  listarPensamentos() {
+    this.favoritos = false;
+    this.service
+      .listar(this.paginaAtual, this.filtro, this.favoritos)
+      .subscribe((listaPensamento) => {
+        this.listaPensamentos = listaPensamento;
       });
   }
 }
