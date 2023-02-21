@@ -5,21 +5,21 @@
       "conteudo": "Este pensamento está vindo do json-server!",
       "autoria": "json-server",
       "modelo": "modelo1",
-      "favorito": true
+      "favorito": false
     },
     {
       "id": 2,
       "conteudo": "Angular é melhor que react!",
       "autoria": "Um Dev",
       "modelo": "modelo3",
-      "favorito": true
+      "favorito": false
     },
     {
       "id": 3,
       "conteudo": "Eu amo java.",
       "autoria": "Javeiro",
       "modelo": "modelo2",
-      "favorito": true
+      "favorito": false
     },
     {
       "conteudo": "Angular é simples",
