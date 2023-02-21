@@ -12,13 +12,14 @@ export class ListarPensamentoComponent implements OnInit {
   paginaAtual: number = 1;
   haMaisPensamentos: boolean = true;
   filtro: string = '';
+  favoritos: boolean = false;
 
   constructor(private service: PensamentoService) {}
 
   ngOnInit(): void {
     // faz parte do ciclo de vida, se vc quiser que algo seja executado assim que o componente iniciar, vc bota aqui.
     this.service
-      .listar(this.paginaAtual, this.filtro)
+      .listar(this.paginaAtual, this.filtro, this.favoritos)
       .subscribe((listaPensamento) => {
         this.listaPensamentos = listaPensamento;
       });
@@ -26,7 +27,7 @@ export class ListarPensamentoComponent implements OnInit {
 
   carregarMaisPensamentos() {
     this.service
-      .listar(++this.paginaAtual, this.filtro)
+      .listar(++this.paginaAtual, this.filtro, this.favoritos)
       .subscribe((listaPensamentos) => {
         this.listaPensamentos.push(...listaPensamentos);
         if (!listaPensamentos.length) {
@@ -40,17 +41,18 @@ export class ListarPensamentoComponent implements OnInit {
     this.haMaisPensamentos = true;
 
     this.service
-      .listar(this.paginaAtual, this.filtro)
+      .listar(this.paginaAtual, this.filtro, this.favoritos)
       .subscribe((listaPensamentos) => {
         this.listaPensamentos = listaPensamentos;
       });
   }
 
   listarFavoritos() {
+    this.favoritos = true;
     this.haMaisPensamentos = true;
     this.paginaAtual = 1;
     this.service
-      .listarPensamentosFavoritos(this.paginaAtual, this.filtro)
+      .listar(this.paginaAtual, this.filtro, this.favoritos)
       .subscribe((listaPensamentosFavoritos) => {
         this.listaPensamentos = listaPensamentosFavoritos;
       });

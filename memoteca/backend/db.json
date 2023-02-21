@@ -5,7 +5,7 @@
       "conteudo": "Este pensamento está vindo do json-server!",
       "autoria": "json-server",
       "modelo": "modelo1",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 2,
@@ -32,28 +32,28 @@
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
-      "favorito": false,
+      "favorito": true,
       "id": 8
     },
     {
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
-      "favorito": false,
+      "favorito": true,
       "id": 9
     },
     {
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
-      "favorito": false,
+      "favorito": true,
       "id": 10
     },
     {
       "conteudo": "um",
       "autoria": "pensamento",
       "modelo": "modelo3",
-      "favorito": false,
+      "favorito": true,
       "id": 11
     },
     {
