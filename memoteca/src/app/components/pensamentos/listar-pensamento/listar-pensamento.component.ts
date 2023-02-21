@@ -10,6 +10,7 @@ import { PensamentoService } from '../pensamento.service';
 export class ListarPensamentoComponent implements OnInit {
   listaPensamentos: Array<Pensamento> = [];
   paginaAtual: number = 1;
+  haMaisPensamentos: boolean = true;
 
   constructor(private service: PensamentoService) {}
 
@@ -17,6 +18,15 @@ export class ListarPensamentoComponent implements OnInit {
     // faz parte do ciclo de vida, se vc quiser que algo seja executado assim que o componente iniciar, vc bota aqui.
     this.service.listar(this.paginaAtual).subscribe((listaPensamento) => {
       this.listaPensamentos = listaPensamento;
+    });
+  }
+
+  carregarMaisPensamentos() {
+    this.service.listar(++this.paginaAtual).subscribe((listaPensamentos) => {
+      this.listaPensamentos.push(...listaPensamentos);
+      if (!listaPensamentos.length) {
+        this.haMaisPensamentos = false;
+      }
     });
   }
 }
