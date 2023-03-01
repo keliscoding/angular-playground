@@ -16,7 +16,7 @@ export class ListaLivrosComponent implements OnDestroy {
 
   buscarLivros() {
     this.subscription = this.service.buscar(this.campoBusca).subscribe({
-      next: (retorno) => console.log(retorno),
+      next: (retorno) => console.log(),
       error: (err) => console.error(err),
       complete: () => console.log('Observable completado'),
     });

@@ -4,13 +4,18 @@ export interface Livro {
   title?: string;
   authors?: string[];
   publisher?: string;
-  publishedDate?: Date;
+  publishedDate?: string;
   description?: string;
   previewLink?: string;
-  thumbnail?: string;
+  thumbnail?: ImageLinks;
 }
 
 export interface VolumeInfo {
+  title: string;
+  authors: string[];
+  publisher: string;
+  publishedDate: string;
+  description: string;
   pageCount: number;
   printType: string;
   mainCategory: string;
