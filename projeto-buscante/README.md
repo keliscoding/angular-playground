@@ -13,3 +13,13 @@ Pipe- Função que serve para agrupar múltiplos operadores. Não modifica o obs
 Tap - Operador de serviços públicos. Usado para debugging. Não modifica o observable.
 
 Map - Operador de transformação. Transforma o observable de acordo com a função passada. Retorna um observable modificado.
+
+SwitchMap - Operador de Transformação. Cancela requisições de observables anteriores, emitindo valores apenas do Observable projetado mais recentemente.
+
+Pipe Async - O método de subscriber (inscrever) e unsubscriber (desinscrever) é tão comum que o Angular criou um recurso para facilitar nossa vida, chamado | async (pipe async).
+
+Filter - Operador de filtragem. Filtra os itens emitidos pelo Observable de origem, permitindo apenas aqueles que satisfaçam uma condição especificada.
+
+DebounceTime - Operador de filtragem. Retorna um Observable que atrasa as emissões do Observable de origem pelo tempo especificado.
+
+DistinctUntilChanged - Operador de filtragem. Retorna um Observable que emite todos os valores enviados pelo observable de origem se forem distintos em comparação com o último valor emitido pelo observable de resultado.

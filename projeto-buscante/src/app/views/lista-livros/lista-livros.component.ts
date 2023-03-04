@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { debounceTime, filter, map, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs';
 import { Item } from 'src/app/models/interfaces';
 import { LivroService } from 'src/app/service/livro.service';
 import { LivroVolumeInfo } from 'src/app/models/livroVolumeInfo';
@@ -21,6 +21,7 @@ export class ListaLivrosComponent {
   livrosEncontrados$ = this.campoBusca.valueChanges.pipe(
     debounceTime(PAUSA),
     filter((valorDigitado) => valorDigitado.length >= 3),
+    distinctUntilChanged(),
     switchMap((valorDigitado) => this.service.buscar(valorDigitado)),
     map((items) => this.livrosResultadoParaLivros(items))
   );
