@@ -28,25 +28,14 @@ export class ListaLivrosComponent {
   livrosResultado: LivrosResultado;
 
   constructor(private service: LivroService) {}
-
-  totalDeLivros$ = this.campoBusca.valueChanges.pipe(
-    debounceTime(PAUSA),
-    filter((valorDigitado) => valorDigitado.length >= 3),
-    distinctUntilChanged(),
-    switchMap((valorDigitado) => this.service.buscar(valorDigitado)),
-    map((resultado) => (this.livrosResultado = resultado)),
-    catchError((erro) => {
-      console.log(erro);
-      return of();
-    })
-  );
-
+  
   // é convensao da comunidade botar um $ no final de um atributo que representa um observable
   livrosEncontrados$ = this.campoBusca.valueChanges.pipe(
     debounceTime(PAUSA),
     filter((valorDigitado) => valorDigitado.length >= 3),
     distinctUntilChanged(),
     switchMap((valorDigitado) => this.service.buscar(valorDigitado)),
+    map((resultado) => (this.livrosResultado = resultado)),
     map((resultado) => resultado.items ?? []),
     map((items) => this.livrosResultadoParaLivros(items)),
     catchError((erro) => {
