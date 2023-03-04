@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { filter, map, switchMap } from 'rxjs';
+import { debounceTime, filter, map, switchMap } from 'rxjs';
 import { Item } from 'src/app/models/interfaces';
 import { LivroService } from 'src/app/service/livro.service';
 import { LivroVolumeInfo } from 'src/app/models/livroVolumeInfo';
 import { FormControl } from '@angular/forms';
+
+const PAUSA = 300;
 
 @Component({
   selector: 'app-lista-livros',
@@ -17,6 +19,7 @@ export class ListaLivrosComponent {
 
   // é convensao da comunidade botar um $ no final de um atributo que representa um observable
   livrosEncontrados$ = this.campoBusca.valueChanges.pipe(
+    debounceTime(PAUSA),
     filter((valorDigitado) => valorDigitado.length >= 3),
     switchMap((valorDigitado) => this.service.buscar(valorDigitado)),
     map((items) => this.livrosResultadoParaLivros(items))
