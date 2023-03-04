@@ -1,5 +1,14 @@
 import { Component } from '@angular/core';
-import { catchError, debounceTime, distinctUntilChanged, filter, map, switchMap, throwError } from 'rxjs';
+import {
+  EMPTY,
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  switchMap,
+  throwError,
+} from 'rxjs';
 import { Item } from 'src/app/models/interfaces';
 import { LivroService } from 'src/app/service/livro.service';
 import { LivroVolumeInfo } from 'src/app/models/livroVolumeInfo';
@@ -14,6 +23,7 @@ const PAUSA = 300;
 })
 export class ListaLivrosComponent {
   campoBusca = new FormControl();
+  mensagemErro = '';
 
   constructor(private service: LivroService) {}
 
@@ -24,9 +34,16 @@ export class ListaLivrosComponent {
     distinctUntilChanged(),
     switchMap((valorDigitado) => this.service.buscar(valorDigitado)),
     map((items) => this.livrosResultadoParaLivros(items)),
-    catchError(erro => {
-      console.log(erro)
-      return throwError(() => new Error(erro))
+    catchError((erro) => {
+      this.mensagemErro = 'Ops, ocorreu um erro! Recarregue a aplicação.';
+      return EMPTY;
+      /* return throwError(
+        () =>
+          new Error(
+            (this.mensagemErro =
+              'Ops, ocorreu um erro! Recarregue a aplicação.')
+          )
+      ); */
     })
   );
 
