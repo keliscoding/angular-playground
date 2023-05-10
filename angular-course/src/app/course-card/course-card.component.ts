@@ -35,4 +35,10 @@ export class CourseCardComponent {
       advanced: this.course.category === "ADVANCED",
     };
   }
+
+  cardStyles() {
+    /*ngClass is used whenever we want to populate a css property depending
+    on the date, for example, the image url that changes every card*/
+    return { "text-decoration": "underline" };
+  }
 }
