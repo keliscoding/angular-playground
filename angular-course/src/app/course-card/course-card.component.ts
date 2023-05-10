@@ -25,4 +25,14 @@ export class CourseCardComponent {
   isImageVisible() {
     return this.course && this.course.iconUrl;
   }
+
+  cardClasses() {
+    /*ngClass is used whenever we want to add or remove a style
+      to our template depending on the content*/
+    return {
+      beginner: this.course.category === "BEGINNER",
+      intermediate: this.course.category === "INTERMEDIATE",
+      advanced: this.course.category === "ADVANCED",
+    };
+  }
 }
