@@ -21,4 +21,8 @@ export class CourseCardComponent {
   onCourseView() {
     this.courseSelected.emit(this.course);
   }
+
+  isImageVisible() {
+    return this.course && this.course.iconUrl;
+  }
 }
