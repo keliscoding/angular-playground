@@ -13,6 +13,9 @@ export class CourseCardComponent {
   @Output()
   courseSelected = new EventEmitter<Course>();
 
+  @Input()
+  cardIndex: number;
+
   constructor() {}
 
   onCourseView() {
