@@ -5,7 +5,9 @@
       {{ cardIndex + " - " + course.description }}
   </div>
 
-  <ng-content select="course-image"></ng-content>
+  <!-- ng-template allow us to define blocks oh html that correspond to a single isolated template. this code is not going to be displayed by default on the page, its only going to be displayed if we use the template somewhere. The template can see the variables of the context on which it's embedded-->
+
+  <ng-content select="course-image" *ngIf="course.iconUrl; else blankImage"></ng-content>
 
   <!--
   <img width="300" [alt]="course.description" *ngIf="isImageVisible(); else noImage"

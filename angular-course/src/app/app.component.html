@@ -10,8 +10,18 @@
     <div>{{title | uppercase }}</div>
 </div>
 
-<div class="courses">
-    <course-card
+<div class="courses" *ngIf="courses[0] as course">
+
+  <ng-template #blankImage let-courseName="description">
+    <p class="warn">{{courseName}} is available yet.</p>
+    <img src="/assets/empty-image.png" alt="">
+  </ng-template>
+
+  <ng-container *ngTemplateOutlet="blankImage; context: {description: course.description}">
+
+  </ng-container>
+
+  <course-card
     *ngFor="let course of courses; index as i;
       first as isFirst;
       last as isLast;
