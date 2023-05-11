@@ -5,6 +5,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  TemplateRef,
 } from "@angular/core";
 import { Course } from "../model/course";
 import { CourseImageComponent } from "../course-image/course-image.component";
@@ -27,6 +28,9 @@ export class CourseCardComponent {
   //should only be used if we have a situation where our component is using content projection and we need to grab a reference to some of the content in our component class
   @ContentChild(CourseImageComponent, { read: ElementRef })
   image: ElementRef;
+
+  @Input()
+  noImageTpl: TemplateRef<any>;
 
   constructor() {}
 

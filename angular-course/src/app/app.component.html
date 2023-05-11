@@ -17,9 +17,9 @@
     <img src="/assets/empty-image.png" alt="">
   </ng-template>
 
-  <ng-container *ngTemplateOutlet="blankImage; context: {description: course.description}">
+  <!--<ng-container *ngTemplateOutlet="blankImage; context: {description: course.description}">
 
-  </ng-container>
+  </ng-container>-->
 
   <course-card
     *ngFor="let course of courses; index as i;
@@ -33,7 +33,9 @@
     [class.is-odd]="isOdd"
     (courseSelected)="onCourseSelected($event)"
     [course] = "course"
-    [cardIndex]="i+1">
+    [cardIndex]="i+1"
+    [noImageTpl]="blankImage"
+    >
 
     <course-image [src]="course.iconUrl" [alt]="course.description"></course-image>
 
