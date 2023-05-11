@@ -9,6 +9,7 @@ import {
 
 @Directive({
   selector: "[highlighted]",
+  exportAs: "hl",
 })
 export class HighlightedDirective {
   @Input("highlighted")
@@ -48,6 +49,11 @@ export class HighlightedDirective {
   @HostListener("mouseleave")
   mouseLeave() {
     this.isHighlighted = false;
+    this.toggleHighlight.emit(this.isHighlighted);
+  }
+
+  toggle() {
+    this.isHighlighted = !this.isHighlighted;
     this.toggleHighlight.emit(this.isHighlighted);
   }
 }
