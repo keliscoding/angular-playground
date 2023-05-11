@@ -23,7 +23,13 @@
     [class.is-odd]="isOdd"
     (courseSelected)="onCourseSelected($event)"
     [course] = "course"
-    [cardIndex]="i+1"></course-card>
+    [cardIndex]="i+1">
+
+    <img width="300" [alt]="course.description"
+       [src]="course.iconUrl">
+
+    <h5>Total lessons: 5</h5>
+  </course-card>
 </div>
 
 
