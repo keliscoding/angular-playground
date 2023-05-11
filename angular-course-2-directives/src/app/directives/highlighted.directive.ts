@@ -1,12 +1,21 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  Output,
+} from "@angular/core";
 
 @Directive({
   selector: "[highlighted]",
 })
 export class HighlightedDirective {
-
-  @Input('highlighted')
+  @Input("highlighted")
   isHighlighted = false;
+
+  @Output()
+  toggleHighlight = new EventEmitter();
 
   constructor() {}
 
@@ -22,11 +31,23 @@ export class HighlightedDirective {
   }
 
   // we can only use binding to write a value to a property that is already known
-
+  //we can use the host binding to play with inline-style aswell
   @HostBinding("style.border")
   get cssStyles() {
     return "3px solid blue";
   }
 
-  //we can use the host binding to play with inline-style aswell
+  //Host listener is a very convenient way to interact with with native dom events of the host elemment
+  @HostListener("mouseover", ["$event"])
+  mouseOver($event) {
+    //console.log($event);
+    this.isHighlighted = true;
+    this.toggleHighlight.emit(this.isHighlighted);
+  }
+
+  @HostListener("mouseleave")
+  mouseLeave() {
+    this.isHighlighted = false;
+    this.toggleHighlight.emit(this.isHighlighted);
+  }
 }
