@@ -1,5 +1,13 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import {
+  Component,
+  ContentChild,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+} from "@angular/core";
 import { Course } from "../model/course";
+import { CourseImageComponent } from "../course-image/course-image.component";
 
 @Component({
   selector: "course-card",
@@ -16,7 +24,15 @@ export class CourseCardComponent {
   @Input()
   cardIndex: number;
 
+  //should only be used if we have a situation where our component is using content projection and we need to grab a reference to some of the content in our component class
+  @ContentChild(CourseImageComponent, { read: ElementRef })
+  image: ElementRef;
+
   constructor() {}
+
+  ngAfterViewInit() {
+    console.log(this.image);
+  }
 
   onCourseView() {
     this.courseSelected.emit(this.course);

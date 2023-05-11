@@ -25,10 +25,8 @@
     [course] = "course"
     [cardIndex]="i+1">
 
-    <img width="300" [alt]="course.description"
-       [src]="course.iconUrl">
+    <course-image [src]="course.iconUrl" [alt]="course.description"></course-image>
 
-    <h5>Total lessons: 5</h5>
   </course-card>
 </div>
 
